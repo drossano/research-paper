@@ -26,45 +26,26 @@
 \setcounter{lastroman}{\value{page}}
 \pagenumbering{arabic}
 \maketitle
-\begin{abstract}
-    \lipsum[20]
-\end{abstract}
-\section{Topic1, Content1 and Structure1}
-\subsection{Topic}
-\lipsum[10]
-\subsection{Content}
-\lipsum[15]
-\begin{figure}[h]
+\section{Problem Definition}
+Nonograms are grid based puzzles in which the player must determine if the cells are to be filled in or left blank. This is determined by sequence of numbers aligned with the rows and columns of the grid. If a sequence contains a single number, the associated line will contain that number of filled squares in a row. If a sequence contains 2 or more numbers, that line contains an uninterrupted line of squares equal to each number, followed by at least one empty space between each number in the order that those numbers appear. For example, the first row of the below nonogram contains only a three, therefore the first row has three cells in a row filled in. The second line contains a one followed by a  three, therefore it gets one square filled in followed by a line of three.
+
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{Andromeda_Galaxy_560mm_FL.jpg}\label{fig::andromeda}
-    \caption{Andromeda Galaxy}
+    {\includegraphics[width=0.4\linewidth]{fig/nonogram.png}}\hfill
+    {\includegraphics[width=0.4\linewidth]{fig/canvas.png}}
+        \caption{An example nonogram and solution}
+    \label{fig:enter-label}
 \end{figure}
-\subsection{Structure}
-\lipsum[20]
-\section{Topic2, Content2 and Structure2}
-\subsection{Topic}
-\lipsum[25]
-\subsection{Content}
-\begin{table}[H]
-\centering
-\begin{tabular}{@{}llllllll@{}} \toprule
-    {\(m\)} & {\(\Re\{\underline{\mathfrak{X}}(m)\}\)} & {\(-\Im\{\underline{\mathfrak{X}}(m)\}\)} & {\(\mathfrak{X}(m)\)} & {\(\frac{\mathfrak{X}(m)}{23}\)} & {\(A_m\)} & {\(\varphi(m)\ /\ ^{\circ}\)} & {\(\varphi_m\ /\ ^{\circ}\)} \\ \midrule
-    1  & 16.128 & +8.872 & 16.128 & 1.402 & 1.373 & -146.6 & -137.6 \\
-    2  & 3.442  & -2.509 & 3.442  & 0.299 & 0.343 & 133.2  & 152.4  \\
-    3  & 1.826  & -0.363 & 1.826  & 0.159 & 0.119 & 168.5  & -161.1 \\
-    4  & 0.993  & -0.429 & 0.993  & 0.086 & 0.08  & 25.6   & 90     \\ \midrule
-    5  & 1.29   & +0.099 & 1.29   & 0.112 & 0.097 & -175.6 & -114.7 \\
-    6  & 0.483  & -0.183 & 0.483  & 0.042 & 0.063 & 22.3   & 122.5  \\
-    7  & 0.766  & -0.475 & 0.766  & 0.067 & 0.039 & 141.6  & -122   \\
-    8  & 0.624  & +0.365 & 0.624  & 0.054 & 0.04  & -35.7  & 90     \\ \midrule
-    9  & 0.641  & -0.466 & 0.641  & 0.056 & 0.045 & 133.3  & -106.3 \\
-    10 & 0.45   & +0.421 & 0.45   & 0.039 & 0.034 & -69.4  & 110.9  \\
-    11 & 0.598  & -0.597 & 0.598  & 0.052 & 0.025 & 92.3   & -109.3 \\ \bottomrule
-\end{tabular}
-\caption{Fourier series}\label{tab::fourier}
-\end{table}
-\subsection{Structure}
-\lipsum[35]
+
+Nonograms make for great problems to be solved by AI. The board, and whether any square is determined to be filled, blank (denoted with an X), or unknown(left blank) is fully observable. As the solver is acting alone it will only have a single agent. The solver determines which squares are filled or not making them deteriniistic. Nonograms are suequntial as squares being makred filled or blank will affect the possible outcome for other squares. Lastly as nonograms have well defined rules they can be considered known environments.
+
+
+\section{Lit Review}
+\subsection{CSP}
+Manyam et al \cite{10863160} applied algorithms to solve Sudoku puzzles. As nonograms have well defined rules like sudoku, similar studies can be conducted.
+\subsection{Genetic Algorithm}
+
 \newpage
 
 % Anhang
@@ -89,6 +70,5 @@
 \addcontentsline{toc}{section}{References}
 \bibliographystyle{alpha}
 \bibliography{bib/sources}
-\include{inc/ensure.inc}
 
 \end{document}
