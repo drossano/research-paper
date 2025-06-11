@@ -27,7 +27,7 @@
 \pagenumbering{arabic}
 \maketitle
 \section{Problem Definition}
-Nonograms are grid based puzzles in which the player must determine if the cells are to be filled in or left blank. This is determined by sequence of numbers aligned with the rows and columns of the grid. If a sequence contains a single number, the associated line will contain that number of filled squares in a row. If a sequence contains 2 or more numbers, that line contains an uninterrupted line of squares equal to each number, followed by at least one empty space between each number in the order that those numbers appear. For example, the first row of the below nonogram contains only a three, therefore the first row has three cells in a row filled in. The second line contains a one followed by a  three, therefore it gets one square filled in followed by a line of three.
+    Nonograms are grid based puzzles in which the player must determine if the cells are to be filled in or left blank. This is determined by sequence of numbers aligned with the rows and columns of the grid. If a sequence contains a single number, the associated line will contain that number of filled squares in a row. If a sequence contains 2 or more numbers, that line contains an uninterrupted line of squares equal to each number, followed by at least one empty space between each number in the order that those numbers appear. For example, the first row of the below nonogram contains only a three, therefore the first row has three cells in a row filled in. The second line contains a one followed by a  three, therefore it gets one square filled in followed by a line of three.
 
 
 \begin{figure}[H]
@@ -38,13 +38,21 @@ Nonograms are grid based puzzles in which the player must determine if the cells
     \label{fig:enter-label}
 \end{figure}
 
-Nonograms make for great problems to be solved by AI. The board, and whether any square is determined to be filled, blank (denoted with an X), or unknown(left blank) is fully observable. As the solver is acting alone it will only have a single agent. The solver determines which squares are filled or not making them deteriniistic. Nonograms are suequntial as squares being makred filled or blank will affect the possible outcome for other squares. Lastly as nonograms have well defined rules they can be considered known environments.
+    Nonograms make for great problems to be solved by AI. The board and whether any square is determined to be filled, blank (denoted with an X), or unknown(left blank) is fully observable. As the solver is acting alone it will only have a single agent. The solver determines which squares are filled or not making them deterministic. Nonograms are sequential as squares being makred filled or blank will affect the possible outcome for other squares. Lastly as nonograms have well-defined rules they can be considered known environments.
 
 
-\section{Lit Review}
-\subsection{CSP}
-Manyam et al \cite{10863160} applied algorithms to solve Sudoku puzzles. As nonograms have well defined rules like sudoku, similar studies can be conducted. Backtracking, Ant Colony Optimization and Constraint Propogation Algorithms were implemented. They applied each of these algorithms to 9x9, 16x16 and 25 x 25 sudoku puzzles. 
-\subsection{Genetic Algorithm}
+\section{Previous Work}
+    Manyam et al \cite{10863160} applied algorithms to solve Sudoku puzzles. As nonograms have well-defined rules like sudoku, similar studies can be conducted. Backtracking, Ant Colony Optimization(ACO) and Constraint Propagation Algorithms were implemented. They applied each of these algorithms to 9x9, 16x16 and 25 x 25 sudoku puzzles. A GUI for a sudoku game was created using the Pygame framework. The player can attempt to solve the puzzle themselves and when they get stuck, click on a button that will trigger an algorithm to solve the puzzle.
+
+    The first algorithm that they implemented was Backtracking. The algorithm placed numbers in empty cells and upon reaching a conflict, backtracked by trying a different number in the cell. Branched that break constraints (the rules of sudoku) are pruned to increase efficiency. This is continued until either the puzzle is solved or every possibility is explored and no solution can be found.
+
+    ACO is implemented by simulating the behavior of ants. As cells are filled a "pheromone level" is assigned. The more likely to be valid that an entry is, the higher its pheromone level. Higher pheromone levels are more likely to be picked by future ants. Each cycle pheromone levels get updated and cells are filled accordingly until a solution is found or all possibilites are exhausted.
+
+    Lastly constraint propagation initialized the grid with possible values for empty cells and deletes impossible values to find cells that can be inferred with sudoku solving techniques. Invalid paths are eliminated and the cycle repeats until the puzzle is solved.
+
+    The results show that for girds sized 9x9 Constraint Propagation is the most efficient and for larger grids, ACO is the most efficient.
+
+\section{Methodology}
 
 \newpage
 
