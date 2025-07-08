@@ -1,4 +1,5 @@
-\documentclass[12pt, letterpaper]{article}
+\documentclass[12pt, letterpaper]
+{article}
 
 \include{inc/packages.inc}
 \include{inc/personalize.inc}
@@ -48,7 +49,7 @@
     An AI-based nonogram solver can be useful as a component for computer nonogram games. It can prvoide a player answers if they get stuck or be used to dynamically create puzzles iwth valid soltuions.
 
     \subsection{Constraint Satisfaction Problems}
-    Nonograms will be structured as Constraint Satisfaction Problems (CSPs). CSPs are made up of three components: a set of variables, $X$, set of domains for each variable, $D$, and a set of contraints that are allowable combinations of values, $C$. Applying these principles to a nonogram: each row of the puzzle will be a variable. Based on the clues for a row, every possible combination of filled and unfilled cells will be found which will then compose the domain for that row. The constraints will then be the clues for the columns; a value for a row will be valid if it can create a
+    Nonograms will be structured as Constraint Satisfaction Problems (CSPs). CSPs are made up of three components: a set of variables, $X$, set of domains for each variable, $D$, and a set of contraints that are allowable combinations of values, $C$. Applying these principles to a nonogram: each row of the puzzle will be a variable. Based on the clues for a row, every possible combination of filled and unfilled cells will be found which will then compose the domain for that row. The constraints will be defined by the column clues; if each cell in a row creates a vaild column, that value satisfies the constraint.
 
 
 

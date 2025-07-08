@@ -1,0 +1,6 @@
+nonograms
+Nonograms
+nonogram
+Manyam
+sudoku
+Pygame
