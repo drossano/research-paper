@@ -31,6 +31,7 @@
 \pagenumbering{arabic}
 \maketitle
 \section{Problem Definition}
+%talk about csps, ac3 and mrv
     This project will measure the efficiency of the CSP algorithm by measuring its performance at solving a kind of puzzle known as nonograms.  Nonograms are grid based puzzles in which the player must determine if the cells are to be filled in or left blank. Grids can be any rectangular shape but are typically found as squares (N x N) where N is a multiple of 5. Whether a cell is filled or not is determined by sequence of numbers aligned with the rows and columns of the grid. If a sequence contains a single number, the associated line will contain that number of filled squares in a row. If a sequence contains 2 or more numbers, that line contains an uninterrupted line of squares equal to each number, followed by at least one empty space between each number in the order that those numbers appear. For example, the first row of the below nonogram contains only a three, therefore the first row has three cells in a row filled in. The second line contains a one followed by a  three, therefore it gets one square filled in followed by a line of three.
 
 
@@ -42,7 +43,16 @@
     \label{fig:enter-label}
 \end{figure}
 
-    Nonograms make for great problems to be solved by AI. The board and whether any square is determined to be filled, blank (denoted with an X), or unknown(left blank) is fully observable. As the solver is acting alone it will only have a single agent. The solver determines which squares are filled or not making them deterministic. Nonograms are sequential as squares being marked filled or blank will affect the possible outcome for other squares. Lastly as nonograms have well-defined rules they can be considered known environments.
+    Nonograms make for great problems to be solved by AI. The board and whether any square is determined to be filled, blank (denoted with an X), or unknown(left blank) is fully observable. As the solver is acting alone it will only have a single agent. The solver determines which squares are filled or not making them deterministic. Nonograms are sequential as squares being marked filled or blank will affect the possible outcome for other squares. Lastly as nonograms have well-defined rules they can be considered known environments. 
+    
+    An AI-based nonogram solver can be useful as a component for computer nonogram games. It can prvoide a player answers if they get stuck or be used to dynamically create puzzles iwth valid soltuions.
+
+    \subsection{Constraint Satisfaction Problems}
+    Nonograms will be structured as Constraint Satisfaction Problems (CSPs). CSPs are made up of three components: a set of variables, $X$, set of domains for each variable, $D$, and a set of contraints that are allowable combinations of values, $C$. Applying these principles to a nonogram: each row of the puzzle will be a variable. Based on the clues for a row, every possible combination of filled and unfilled cells will be found which will then compose the domain for that row. The constraints will then be the clues for the columns; a value for a row will be valid if it can create a
+
+
+
+
 
 
 \section{Previous Work}
@@ -57,10 +67,13 @@
     The results show that for girds sized 9x9 Constraint Propagation is the most efficient and for larger grids, ACO is the most efficient.
 
 \section{Methodology}
-% 4. Have a section where you describe what you aim to achieve, how you plan to approach the problem, and what steps you will take. Be specific about what you will implement, analyze, or evaluate. Your reviewer should be able to assess the feasibility, novelty, and potential impact of your project based on this section.
-The performance of the genetic algorithm measured. The metric to measure performance will be time complexity. Due to personal familiarity and the availability of the python-constraint \cite{pycon} library, the Python programming language will be used. The program will be a command line program that will solve nonograms. Nonograms will be supplied to the program via a CSV file where each column represents horizontal and vertical clues respectively, and each row represents clues for each row and column. These will be stored as arrays. 
+%Expand on this
+The performance of the genetic algorithm measured. The metric to measure performance will be time complexity. Due to personal familiarity and the availability of the python-constraint \cite{pycon} library, the Python programming language will be used. The program will be a command line program that will solve nonograms. Nonograms will be supplied to the program via a CSV file where each column represents horizontal and vertical clues respectively, and each row represents clues for each row and column. These will be stored as arrays.
 In modeling a nonogram as a Constraint Satisfaction Problem(CSP), the cells will be the variables, the domain will be the states of filled or empty and the constraints will be the clues for the puzzle. A method will be devised to determine if constraints are being violated. The time from the start of the CSP to it returning a result will be printed. The final nonogram will also be printed. This will be run for a 5x5, 10x10, 15x15 and 25x25 nonogram.
-\newpage
+
+\section{Results}
+
+\section{Conclusion}
 
 % % Anhang
 % \renewcommand{\thesubsection}{\Alph{subsection}}
