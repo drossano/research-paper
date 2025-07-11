@@ -4,3 +4,4 @@ nonogram
 Manyam
 sudoku
 Pygame
+arc-consistnecy
